@@ -1,20 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 :root{
     --login-bg:#f8f3ff;
-    --title-bg:#9089cc;
-    --button-bg:#674baf;
-    --light-pink:#e882e8;
-    --image-bg:#eadbff;
+    --title-bg:#452743;
+    --button-bg:#639b90;
+    --light-pink:#452743;
+    --image-bg:#fff;
 }
 body{
     height: 100vh;
     font-family: 'Poppins', sans-serif;
-    background-image: linear-gradient(to top,#a18cd1 0%,#fbc2eb 100%);
+    background-image: linear-gradient(to top,#639b90 0%, #f6f0e4 100%);
+    overflow-y: hidden;
 }
+
+a{
+    color: var(--button-bg);
+}
+
 .login-container{
-    height: 43.75em;
+    height: 40em;
     width: 60em;
-    margin:6em auto;
+    margin:3em auto;
     display: flex;
     justify-content: space-between;
     overflow: hidden;
@@ -34,10 +40,22 @@ body{
 }
 .image-container{
     width: 50%;
+    height: 96%;
     padding-top:2rem;
     background-color: var(--image-bg);
+    border: 1px  #452743;
+    
+
 
 }
+ .image-container img {
+    width: 30rem;
+     height: 20rem;
+    position: relative;
+    top: 0;
+    left: 0.10rem;
+    margin-top: 30%;
+} 
 .title{
     text-transform: capitalize;
     font-size: 2.25rem;
@@ -120,9 +138,5 @@ body{
 .span{
     color:var(--light-pink);
     font-weight: 600;
-    cursor: pointer;
-}
-
-h4 {
-    color: var(--button-bg);
+    cursor: pointer;
 }

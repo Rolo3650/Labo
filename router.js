@@ -21,15 +21,18 @@ router.post('/home', async (req, res) => {
     const usuario = await consulta.obtenerUsuarioPorLogin(correo, contrasenia);
 
     if (usuario) {
+        let estados = consulta.obtenerEstados();
+        let municipios = consulta.obtenerMunicipios();
+        let asentamientos = consulta.obtenerTodosLosAentmaientos();
+
         let publicaciones = await consulta.obtenerTodasLasPublicaciones();
-        publicaciones.forEach(async publicacion => {
-            publicacion.inicializarComentarios(await consulta.obtenerComentariosDePublicacion(publicacion.obtenerIdPublicacion()));
-            publicacion.inicializarImagenes( await consulta.obtenerImagenesDePublicacion(publicacion.obtenerIdPublicacion()));
-        });
 
         res.render('home', {
             usuario: usuario,
-            publicaciones: publicaciones
+            publicaciones: publicaciones,
+            estados: estados,
+            municipios: municipios,
+            asentamientos: asentamientos
         });
     } else {
         res.redirect('/?login=false');
